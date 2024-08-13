@@ -1,7 +1,7 @@
 # test-sample.R
 
 library(testthat)
-source("../r-hw1.r")
+source("../../r-hw1.r")
 
 test_that("Bond Effective Sensitivity", {
   y = 0.03
@@ -17,7 +17,7 @@ test_that("Bond Effective Sensitivity", {
   expect_equal(round(x), -1792)
 })
 
-test_that("Arrays1") {
+test_that("Arrays1", {
   vec = matrix(data = 1:3,nrow = 1,ncol = 3)
   mat = matrix(data = 1:9,nrow = 3,ncol = 3,byrow = T)
   ans = vector(mode = "numeric",length = 3)
@@ -31,12 +31,12 @@ test_that("Arrays1") {
   # x[3] == 42
   expect_equal(x[3], 42)
 
-}
+})
 
-test_that("Conditioning") {
+test_that("Conditioning", {
   x = FizzBuzz(40,45)
   # x[1] == "buzz" & x[2] == "41" & x[6] == "fizzbuzz"
   expect_equal(x[1], "buzz")
   expect_equal(x[2], "41")
   expect_equal(x[6], "fizzbuzz")
-}
+})
