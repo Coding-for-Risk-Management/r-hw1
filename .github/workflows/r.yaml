@@ -14,4 +14,4 @@ jobs:
           Rscript -e 'install.packages("testthat")'
       - name: Run tests
         run: |
-          Rscript -e 'testthat::test_dir("tests")'
+          Rscript -e 'test_file("tests/testthat/unit_tests.r")'
