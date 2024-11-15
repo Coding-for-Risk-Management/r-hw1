@@ -1,2 +1,5 @@
-pytest
+numpy
+pandas
 rpy2
+pytest
+python-dev-tools
