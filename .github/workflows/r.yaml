@@ -1,17 +1,26 @@
-name: R Tests
+name: Python Tests with R
 
 on: [push, pull_request]
 
 jobs:
-  R-CMD-check:
-    runs-on: macOS-latest
+  tests:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
-      - name: Install dependencies
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+
+      - name: Install Python dependencies
         run: |
-          Rscript -e 'install.packages("testthat")'
-      - name: Run tests
+          python -m pip install --upgrade pip
+          pip install rpy2 pytest
+
+      - name: Run Python tests
         run: |
-          Rscript -e 'test_file("tests/testthat/unit_tests.r")'
+          pytest test_r_functions.py -v
