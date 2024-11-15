@@ -14,7 +14,8 @@ class RFunctions:
     @staticmethod
     def my_mat_mult(vec, mat):
         r_vec = robjects.FloatVector(vec[0])
-        r_mat = robjects.matrix(robjects.FloatVector([item for row in mat for item in row]), nrow=len(mat))
+        flattened = [item for row in mat for item in row]
+        r_mat = robjects.r.matrix(robjects.FloatVector(flattened), nrow=len(mat), byrow=True)
         result = r.MyMatMult(r_vec, r_mat)
         return list(result)
     
