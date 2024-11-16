@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Python Tests",
+      "setup": "sudo apt-get update && sudo apt-get install -y r-base python3-dev && pip install numpy pandas rpy2 pytest python-dev-tools",
+      "run": "pytest test_r_functions.py -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
