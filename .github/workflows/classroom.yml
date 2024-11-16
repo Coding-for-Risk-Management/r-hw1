@@ -31,8 +31,10 @@ jobs:
       - name: Run Tests
         id: run-all-tests
         run: |
-          pytest test_r_functions.py -v > test_output.txt
-          echo "result=$(cat test_output.txt)" >> $GITHUB_OUTPUT
+          OUTPUT=$(pytest test_r_functions.py -v)
+          echo "result<<EOF" >> $GITHUB_OUTPUT
+          echo "$OUTPUT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Autograding Reporter
         uses: education/autograding@v1
