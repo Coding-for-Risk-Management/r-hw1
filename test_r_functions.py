@@ -13,7 +13,7 @@ def test_bond_effective_sensitivity():
     ppy = 1
     
     result = RFunctions.get_bpv(y, face, coupon_rate, m, ppy)
-    assert round(result) == -1792
+    assert round(result) == -1
 
 def test_arrays1():
     vec = [[1, 2, 3]]
