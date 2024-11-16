@@ -31,13 +31,11 @@ jobs:
       - name: Run Tests
         id: run-all-tests
         run: |
-          pytest test_r_functions.py -v --json-report --json-report-file=results.json
-          echo "::set-output name=result::$(cat results.json)"
+          pytest test_r_functions.py -v > test_output.txt
+          echo "result=$(cat test_output.txt)" >> $GITHUB_OUTPUT
 
       - name: Autograding Reporter
-        uses: classroom-resources/autograding-grading-reporter@v1
+        uses: education/autograding@v1
         if: always()
-        with:
-          runners: "run-all-tests"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
